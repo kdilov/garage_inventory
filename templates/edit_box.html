@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Box</title>
+</head>
+<body>
+    <h1>Edit Box</h1>
+    <form action="{{ url_for('edit_box', id=box.id) }}" method="post">
+        <input type="text" name="name" value="{{ box.name }}" required>
+        <textarea name="contents">{{ box.contents }}</textarea>
+        <button type="submit">Update Box</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Inventory</a>
+</body>
+</html>

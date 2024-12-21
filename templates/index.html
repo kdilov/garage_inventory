@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+</head>
+<body>
+    <h1>Inventory</h1>
+    <ul>
+        {% for box in boxes %}
+        <li><a href="{{ url_for('view_box', id=box.id) }}">{{ box.name }}</a>: {{ box.contents }}</li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_box') }}" method="post">
+        <input type="text" name="name" placeholder="Box Name" required>
+        <input type="text" name="contents" placeholder="Contents">
+        <button type="submit">Add Box</button>
+    </form>
+</body>
+</html>
